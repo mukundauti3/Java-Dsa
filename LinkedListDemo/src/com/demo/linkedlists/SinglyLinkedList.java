@@ -16,7 +16,7 @@ public class SinglyLinkedList {
 	}
 	
 	//add value after given num
-	public void addByNum(int value,int num) {
+	public void addAfterNum(int value,int num) {
 		Node newNode=new Node(value);
 		Node temp=head;
 		while(temp!=null && temp.data!=num) {
@@ -82,6 +82,53 @@ public class SinglyLinkedList {
 			System.out.println("null");
 		}
 	}
+	
+	//delete by value
+	public void deleteByValue(int val) {
+		Node temp=head;
+		//delete from the head
+		if(head.data==val) {
+			head=temp.next;
+			temp.next=null;
+		}else {
+			Node prev=null;
+			while(temp!=null && temp.data!=val) {
+				prev=temp;
+				temp=temp.next;
+			}
+			//value found
+			if(temp!=null) {
+				prev.next=temp.next;
+				temp.next=null;
+			}else {
+				System.out.println(val + " not found");
+			}
+		}
+	}
+	
+	//delete By position
+	public void deleteByPosition(int pos) {
+		Node temp=head;
+		//delete from the head
+		if(pos==1) {
+			head=temp.next;
+			temp.next=null;
+		}else {
+			Node prev=null;
+			for(int i=0;temp!=null && i<pos-1;i++) {
+				prev=temp;
+				temp=temp.next;
+			}
+			if(temp!=null) {
+				prev.next=temp.next;
+				temp.next=null;
+			}else {
+				System.out.println(pos+ " is beyond the limit");
+			}
+		}
+		
+	}
+	
 	
 
 }
