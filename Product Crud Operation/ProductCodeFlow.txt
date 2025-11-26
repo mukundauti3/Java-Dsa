@@ -1,0 +1,27 @@
+index.html (Login Form)
+        ↓
+   LoginServlet
+        ↓
+   [Valid User?]
+   ┌───────────────┐
+   │               │
+   ▼               ▼
+ShowProduct     index.html (retry login)
+   │
+   ├──> AddNewProduct (form + insert)
+   │
+   ├──> BuyProduct (select product)
+   │        ↓
+   │     PaymentServlet (do payment)
+   │        ↓
+   │     Order Confirmation
+   │
+   └──> Logout
+
+RegistrationServlet (Sign Up)
+   │
+   └──> Save user → Login page
+
+ForgetPasswordServlet
+   │
+   └──> Reset password → Login page
